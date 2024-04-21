@@ -4,7 +4,7 @@ let eventy = []
 
 window.addEventListener("load", async () => {
     try {
-        let ans = await fetch("http://localhost:5050/current", {
+        let ans = await fetch("https://champion-bu5y.onrender.com/current", {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +39,7 @@ document.addEventListener('click', async function (e) {
 });
 
 async function storePost(events) {
-    let eventUrl = "http://localhost:5050/event"
+    let eventUrl = "https://champion-bu5y.onrender.com/event"
     await fetch(eventUrl, {
         method: 'POST',
         headers: {
@@ -214,7 +214,7 @@ document.querySelector("#mgn").addEventListener("click", () => {
 // all products
 let imag;
 async function allP() {
-    let all = "http://localhost:5050/product/all"
+    let all = "https://champion-bu5y.onrender.com/product/all"
     let ans = await fetch(all, {
         method: 'GET',
         headers: {

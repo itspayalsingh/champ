@@ -91,7 +91,7 @@
     let email = document.querySelector("#email").value
     let password = document.querySelector("#pass").value
     let obj = { name, email, password }
-    let url = "http://localhost:5050/customer"
+    let url = "https://champion-bu5y.onrender.com/customer"
     let res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -102,9 +102,9 @@
 
     console.log(res);
     if (res.ok) {
-      // window.location.href = 'http://localhost:5050/public/customerInterface.html'
+      // window.location.href = 'https://champion-bu5y.onrender.com/public/customerInterface.html'
 
-      let lurl = "http://localhost:5050/customer/login"
+      let lurl = "https://champion-bu5y.onrender.com/customer/login"
       var lres = await fetch(lurl, {
         method: 'POST',
         headers: {
@@ -117,7 +117,7 @@
      console.log(lres);
       if(lres){
         sessionStorage.setItem("customerObj" ,JSON.stringify(lres))
-        window.location.href = `http://localhost:5050/public/customerInterface.html?id=${lres.id}`
+        window.location.href = `https://champion-bu5y.onrender.com/public/customerInterface.html?id=${lres.id}`
       }
 
 

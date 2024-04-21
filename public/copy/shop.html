@@ -39,7 +39,7 @@
     width: 350px;
     /* border: 2px solid red; */
     color: white;
-    background-image: url("http://localhost:5050/images/cropedmonth.jpg");
+    background-image: url("https://champion-bu5y.onrender.com/images/cropedmonth.jpg");
 }
 
 #left>div>button {
@@ -246,12 +246,12 @@ display: block;
 <div id="firstnav">
     <div id="firstnav1">
 
-        <div onclick='window.location.href="http://localhost:5050/public/shop.html"'>shop</div>
-        <div onclick='window.location.href="http://localhost:5050/public/about.html"'>About us</div>
-        <div onclick='window.location.href="http://localhost:5050/public/blog.html"'>Blog</div>
+        <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/shop.html"'>shop</div>
+        <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/about.html"'>About us</div>
+        <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/blog.html"'>Blog</div>
         <div>Contact</div>
     </div>
-    <div onclick='window.location.href="http://localhost:5050/public/index.html"' id="firstnav2">
+    <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/index.html"' id="firstnav2">
         CHAMPION
     </div>
     <div id="firstnav3">
@@ -259,12 +259,12 @@ display: block;
             <i style="font-size: 20px;" class="fa-regular fa-user"></i>
             <div id="userHoverOption">
                 <div id="customerSignup"
-                    onclick="window.location.href='http://localhost:5050/public/customerSign.html'">Customer Signup
+                    onclick="window.location.href='https://champion-bu5y.onrender.com/public/customerSign.html'">Customer Signup
                 </div>
                 <div id="customerLogin"
-                    onclick="window.location.href='http://localhost:5050/public/customerLogin.html'">Customer Login
+                    onclick="window.location.href='https://champion-bu5y.onrender.com/public/customerLogin.html'">Customer Login
                 </div>
-                <div id="adminLogin" onclick="window.location.href='http://localhost:5050/public/adminLogin.html'">
+                <div id="adminLogin" onclick="window.location.href='https://champion-bu5y.onrender.com/public/adminLogin.html'">
                     Admin Login</div>
             </div>
         </div>
@@ -326,7 +326,7 @@ display: block;
 <script>
 
 let gt= async()=>{
-    let mainUrl="http://localhost:5050/product/all"
+    let mainUrl="https://champion-bu5y.onrender.com/product/all"
     let ans= await fetch(mainUrl,{
         method:'GET',
         headers:{
@@ -358,7 +358,7 @@ gt()
 
 // low to high price
 document.querySelector("#price1").addEventListener("click",async()=>{
-    let url="http://localhost:5050/product/sort/lowToHighPrice"
+    let url="https://champion-bu5y.onrender.com/product/sort/lowToHighPrice"
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -389,7 +389,7 @@ document.querySelector("#price1").addEventListener("click",async()=>{
 // high to low price
 document.querySelector("#price2").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/sort/highToLowPrice'
+    let url='https://champion-bu5y.onrender.com/product/sort/highToLowPrice'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -425,7 +425,7 @@ document.querySelector("#price2").addEventListener("click",async ()=>{
 // rating low to high
 document.querySelector("#rate1").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/sort/lowToHighRating'
+    let url='https://champion-bu5y.onrender.com/product/sort/lowToHighRating'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -457,7 +457,7 @@ document.querySelector("#rate1").addEventListener("click",async ()=>{
 // rating high to low
 document.querySelector("#rate2").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/sort/highToLowRating'
+    let url='https://champion-bu5y.onrender.com/product/sort/highToLowRating'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -489,7 +489,7 @@ document.querySelector("#rate2").addEventListener("click",async ()=>{
 // only headphones
 document.querySelector("#cat1").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/category/1'
+    let url='https://champion-bu5y.onrender.com/product/category/1'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -520,7 +520,7 @@ document.querySelector("#cat1").addEventListener("click",async ()=>{
 // only earbuds
 document.querySelector("#cat2").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/category/2'
+    let url='https://champion-bu5y.onrender.com/product/category/2'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -551,7 +551,7 @@ document.querySelector("#cat2").addEventListener("click",async ()=>{
 
 document.querySelector("#cat3").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/category/3'
+    let url='https://champion-bu5y.onrender.com/product/category/3'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -583,7 +583,7 @@ document.querySelector("#cat3").addEventListener("click",async ()=>{
 
 document.querySelector("#sort1").addEventListener("click",async ()=>{
 
-    let url='http://localhost:5050/product/sort/AtoZ'
+    let url='https://champion-bu5y.onrender.com/product/sort/AtoZ'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -613,7 +613,7 @@ document.querySelector("#sort1").addEventListener("click",async ()=>{
 
 
 document.querySelector("#sort2").addEventListener("click",async ()=>{
-    let url='http://localhost:5050/product//sort/ZtoA'
+    let url='https://champion-bu5y.onrender.com/product//sort/ZtoA'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -655,8 +655,8 @@ document.querySelector("#sort2").addEventListener("click",async ()=>{
 
 async function productPage(){
     let ans= this.id
-    window.location.href=`http://localhost:5050/public/product.html?id=${ans}`
-    //  =`http://localhost:5050/product/${ans}`
+    window.location.href=`https://champion-bu5y.onrender.com/public/product.html?id=${ans}`
+    //  =`https://champion-bu5y.onrender.com/product/${ans}`
 }
 
 

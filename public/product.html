@@ -170,7 +170,7 @@
             <button class="cross" onclick="this.parentElement.style.display='none'"><i
                     class="fa-solid fa-xmark"></i></button>
             <p><i class="fa-solid fa-check" style="color: green;"></i> Item is Added to Cart</p>
-            <button class="ck" onclick="window.location.href='http://localhost:5050/public/payPage.html'">Checkout <i
+            <button class="ck" onclick="window.location.href='https://champion-bu5y.onrender.com/public/payPage.html'">Checkout <i
                     class="fa-solid fa-chevron-right"></i></button>
         </div>
 
@@ -184,7 +184,7 @@
     let reqId = new URLSearchParams(window.location.search)
     let id = reqId.get('id')
     console.log(id);
-    let url = `http://localhost:5050/product/${id}`
+    let url = `https://champion-bu5y.onrender.com/product/${id}`
     async function get() {
         let ans = await fetch(url, {
             method: 'GET',
@@ -213,7 +213,7 @@
 
     window.addEventListener("load", async () => {
         try {
-            let ans = await fetch("http://localhost:5050/current", {
+            let ans = await fetch("https://champion-bu5y.onrender.com/current", {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'
@@ -248,7 +248,7 @@
     });
 
     async function storePost(events) {
-        let eventUrl = "http://localhost:5050/event"
+        let eventUrl = "https://champion-bu5y.onrender.com/event"
         await fetch(eventUrl, {
             method: 'POST',
             headers: {
@@ -349,7 +349,7 @@
     document.querySelector("#bn").addEventListener("click", () => {
         let cust = JSON.parse(sessionStorage.getItem("customerObj"))
         if (cust) {
-            window.location.href = 'http://localhost:5050/public/payPage.html'
+            window.location.href = 'https://champion-bu5y.onrender.com/public/payPage.html'
         } else {
             document.querySelector("#notify").style.display = 'grid'
             setTimeout(() => {
@@ -368,8 +368,8 @@
         let productId = pro.get('id')
         let obj = { customerId, productId }
         if (cust) {
-            // window.location.href = 'http://localhost:5050/public/payPage.html'
-            let url = 'http://localhost:5050/addToCart'
+            // window.location.href = 'https://champion-bu5y.onrender.com/public/payPage.html'
+            let url = 'https://champion-bu5y.onrender.com/addToCart'
             let ans = await fetch(url, {
                 method: 'POST',
                 headers: {

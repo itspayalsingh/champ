@@ -80,7 +80,7 @@
     let email = document.querySelector("#email").value
     let password = document.querySelector("#pass").value
     let obj = { email, password }
-    let url = "http://localhost:5050/customer/login"
+    let url = "https://champion-bu5y.onrender.com/customer/login"
     let res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -96,7 +96,7 @@
       // let customerObj={ans}
       // console.log(customerObj);
       sessionStorage.setItem("customerObj" ,JSON.stringify(ans))
-      window.location.href = `http://localhost:5050/public/customerInterface.html?id=${ans.id}`
+      window.location.href = `https://champion-bu5y.onrender.com/public/customerInterface.html?id=${ans.id}`
     } else {
       console.log("error while creating customer");
     }

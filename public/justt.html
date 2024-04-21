@@ -125,7 +125,7 @@
     iframe.src = './copy/index.html'
     let cursor = document.createElement('div');
     let clickmage = document.createElement('img');
-    clickmage.src = 'http://localhost:5050/images/Ripple-1.1s-221px-ezgif.com-crop.gif'
+    clickmage.src = 'https://champion-bu5y.onrender.com/images/Ripple-1.1s-221px-ezgif.com-crop.gif'
     clickmage.setAttribute("id", "clicked")
     cursor.innerHTML = `
         <i id="cur" style='color:#E2DFD2; text-shadow: 2px 2px black;font-size:40px;' class="fa-solid fa-arrow-pointer"></i>
@@ -151,8 +151,8 @@
         try {
             let url = new URLSearchParams(window.location.search)
             let id = url.get('id')
-            let allEvents = `http://localhost:5050/event/${id}`
-            let eventCount = `http://localhost:5050/event/count/${id}`
+            let allEvents = `https://champion-bu5y.onrender.com/event/${id}`
+            let eventCount = `https://champion-bu5y.onrender.com/event/count/${id}`
             let ans = await fetch(allEvents, {
                 method: 'GET',
                 headers: {
@@ -176,7 +176,7 @@
             // finding the lastone id timestamp
             let lastId = (res1 - 1) + res[0].id
             console.log("lastid", lastId);
-            let lastIdTimestamp = `http://localhost:5050/event/onlyOne?eventId=${lastId}&&visitorId=${id}`
+            let lastIdTimestamp = `https://champion-bu5y.onrender.com/event/onlyOne?eventId=${lastId}&&visitorId=${id}`
 
             let lastIdAns = await fetch(lastIdTimestamp, {
                 method: 'GET',
@@ -224,7 +224,7 @@
             ((offset, limit) => {
                 setTimeout(async () => {
                     // console.log(offset);
-                    let url = `http://localhost:5050/event/limit?id=${id}&&offset=${offset}&&limit=${limit}`;
+                    let url = `https://champion-bu5y.onrender.com/event/limit?id=${id}&&offset=${offset}&&limit=${limit}`;
                     // console.log(url);
                     try {
                         let ans = await fetch(url, {
@@ -363,7 +363,7 @@
                     iframeWindow.scrollTo(0, event.scrollPosition);
                 } else if (event.type == 'load') {
                     console.log("load");
-                    if (events[i].url == 'http://localhost:5050/public/about.html') {
+                    if (events[i].url == 'https://champion-bu5y.onrender.com/public/about.html') {
                         // console.log("inside about");
                         iframe.src = './copy/about.html'
                         iframe.addEventListener("load", () => {
@@ -374,7 +374,7 @@
                             click.style.display = 'none'
                             click.style.zIndex = "1000000";
                         });
-                    } else if (events[i].url == 'http://localhost:5050/public/blog.html') {
+                    } else if (events[i].url == 'https://champion-bu5y.onrender.com/public/blog.html') {
                         iframe.src = './copy/blog.html'
                         iframe.addEventListener("load", () => {
                             iframe.contentDocument.body.appendChild(cursor);
@@ -384,7 +384,7 @@
                             click.style.display = 'none'
                             click.style.zIndex = "1000000";
                         });
-                    } else if ((events[i].url == 'http://localhost:5050/public/index.html') || (events[i].url == 'http://localhost:5050/')) {
+                    } else if ((events[i].url == 'https://champion-bu5y.onrender.com/public/index.html') || (events[i].url == 'https://champion-bu5y.onrender.com/')) {
                         iframe.src = './copy/index.html'
                         iframe.addEventListener("load", () => {
                             iframe.contentDocument.body.appendChild(cursor);

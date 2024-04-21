@@ -187,12 +187,12 @@ display: block;
     <div id="firstnav">
         <div id="firstnav1">
 
-            <div onclick='window.location.href="http://localhost:5050/public/shop.html"'>shop</div>
-            <div onclick='window.location.href="http://localhost:5050/public/about.html"'>About us</div>
-            <div onclick='window.location.href="http://localhost:5050/public/blog.html"'>Blog</div>
+            <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/shop.html"'>shop</div>
+            <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/about.html"'>About us</div>
+            <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/blog.html"'>Blog</div>
             <div>Contact</div>
         </div>
-        <div onclick='window.location.href="http://localhost:5050/public/index.html"' id="firstnav2">
+        <div onclick='window.location.href="https://champion-bu5y.onrender.com/public/index.html"' id="firstnav2">
             CHAMPION
         </div>
         <div id="firstnav3">
@@ -200,12 +200,12 @@ display: block;
                 <i style="font-size: 20px;" class="fa-regular fa-user"></i>
                 <div id="userHoverOption">
                     <div id="customerSignup"
-                        onclick="window.location.href='http://localhost:5050/public/customerSign.html'">Customer Signup
+                        onclick="window.location.href='https://champion-bu5y.onrender.com/public/customerSign.html'">Customer Signup
                     </div>
                     <div id="customerLogin"
-                        onclick="window.location.href='http://localhost:5050/public/customerLogin.html'">Customer Login
+                        onclick="window.location.href='https://champion-bu5y.onrender.com/public/customerLogin.html'">Customer Login
                     </div>
-                    <div id="adminLogin" onclick="window.location.href='http://localhost:5050/public/adminLogin.html'">
+                    <div id="adminLogin" onclick="window.location.href='https://champion-bu5y.onrender.com/public/adminLogin.html'">
                         Admin Login</div>
                 </div>
             </div>
@@ -278,7 +278,7 @@ let eventy = []
 
 window.addEventListener("load", async () => {
     try {
-        let ans = await fetch("http://localhost:5050/current", {
+        let ans = await fetch("https://champion-bu5y.onrender.com/current", {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -313,7 +313,7 @@ document.addEventListener('click', async function (e) {
 });
 
 async function storePost(events) {
-    let eventUrl = "http://localhost:5050/event"
+    let eventUrl = "https://champion-bu5y.onrender.com/event"
     await fetch(eventUrl, {
         method: 'POST',
         headers: {

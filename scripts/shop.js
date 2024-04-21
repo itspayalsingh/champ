@@ -13,7 +13,7 @@
 
 
 let gt= async()=>{
-    let mainUrl="http://localhost:5050/product/all"
+    let mainUrl="https://champion-bu5y.onrender.com/product/all"
     let ans= await fetch(mainUrl,{
         method:'GET',
         headers:{
@@ -61,7 +61,7 @@ let eventy = []
 
 window.addEventListener("load", async () => {
     try {
-        let ans = await fetch("http://localhost:5050/current", {
+        let ans = await fetch("https://champion-bu5y.onrender.com/current", {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -96,7 +96,7 @@ document.addEventListener('click', async function (e) {
 });
 
 async function storePost(events) {
-    let eventUrl = "http://localhost:5050/event"
+    let eventUrl = "https://champion-bu5y.onrender.com/event"
     await fetch(eventUrl, {
         method: 'POST',
         headers: {
@@ -206,7 +206,7 @@ document.querySelector("#price1").addEventListener("click",async()=>{
    
    
    
-    let url="http://localhost:5050/product/sort/lowToHighPrice"
+    let url="https://champion-bu5y.onrender.com/product/sort/lowToHighPrice"
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -246,7 +246,7 @@ document.querySelector("#price2").addEventListener("click",async ()=>{
 
 
 
-    let url='http://localhost:5050/product/sort/highToLowPrice'
+    let url='https://champion-bu5y.onrender.com/product/sort/highToLowPrice'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -291,7 +291,7 @@ document.querySelector("#rate1").addEventListener("click",async ()=>{
 
 
 
-    let url='http://localhost:5050/product/sort/lowToHighRating'
+    let url='https://champion-bu5y.onrender.com/product/sort/lowToHighRating'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -332,7 +332,7 @@ document.querySelector("#rate2").addEventListener("click",async ()=>{
 
 
 
-    let url='http://localhost:5050/product/sort/highToLowRating'
+    let url='https://champion-bu5y.onrender.com/product/sort/highToLowRating'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -371,7 +371,7 @@ document.querySelector("#cat1").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='http://localhost:5050/product/category/1'
+    let url='https://champion-bu5y.onrender.com/product/category/1'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -409,7 +409,7 @@ document.querySelector("#cat2").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='http://localhost:5050/product/category/2'
+    let url='https://champion-bu5y.onrender.com/product/category/2'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -448,7 +448,7 @@ document.querySelector("#cat3").addEventListener("click",async ()=>{
     })
 
 
-    let url='http://localhost:5050/product/category/3'
+    let url='https://champion-bu5y.onrender.com/product/category/3'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -487,7 +487,7 @@ document.querySelector("#sort1").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='http://localhost:5050/product/sort/AtoZ'
+    let url='https://champion-bu5y.onrender.com/product/sort/AtoZ'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -526,7 +526,7 @@ document.querySelector("#sort2").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='http://localhost:5050/product//sort/ZtoA'
+    let url='https://champion-bu5y.onrender.com/product//sort/ZtoA'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -569,8 +569,8 @@ document.querySelector("#sort2").addEventListener("click",async ()=>{
 
 async function productPage(){
     let ans= this.id
-    window.location.href=`http://localhost:5050/public/product.html?id=${ans}`
-    //  =`http://localhost:5050/product/${ans}`
+    window.location.href=`https://champion-bu5y.onrender.com/public/product.html?id=${ans}`
+    //  =`https://champion-bu5y.onrender.com/product/${ans}`
 }
 
 

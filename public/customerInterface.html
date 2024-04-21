@@ -108,7 +108,7 @@
 
     <div id="main"></div>
     <h1 id="not">The cart is Empty</h1>
-    <button id="sh" onclick="window.location.href='http://localhost:5050/public/shop.html'">Shop All Products</button>
+    <button id="sh" onclick="window.location.href='https://champion-bu5y.onrender.com/public/shop.html'">Shop All Products</button>
 </body>
 
 </html>
@@ -120,7 +120,7 @@
 
     let cId = new URLSearchParams(window.location.search)
     let id = cId.get('id')
-    let fetUrl = `http://localhost:5050/addtocart/just?id=${id}`
+    let fetUrl = `https://champion-bu5y.onrender.com/addtocart/just?id=${id}`
 
     async function getData() {
         let ans = await fetch(fetUrl, {
@@ -167,7 +167,7 @@
 
     async function shape() {
         let id = this.id
-        let deleteUrl = `http://localhost:5050/addtocart/${id}`
+        let deleteUrl = `https://champion-bu5y.onrender.com/addtocart/${id}`
         let dres = await fetch(deleteUrl, {
             method: 'DELETE',
             headers: {
