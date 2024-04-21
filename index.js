@@ -64,7 +64,7 @@ app.get("/current",currAns,(req,res)=>{
 
 port=process.eventNames.PORT||9090
 
-app.listen(9090, async () => {
+app.listen(port, async () => {
     console.log(`server is running on 5050`);
     try {
         await seqlize.authenticate()
