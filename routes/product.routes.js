@@ -22,10 +22,11 @@ productRouter.get("/all", async (req, res) => {
 })
 
 //bulk create product
-productRouter.post('jhaua',async(req,res)=>{
+productRouter.post('/jhaua',async(req,res)=>{
     try {
-        await productModel.bulkCreate(req.body)
-        res.send("new product created")
+        
+        let ans=await productModel.bulkCreate(req.body)
+        res.send(ans,"new product created")
     } catch (error) {
         console.log("error while creating product");
     }
