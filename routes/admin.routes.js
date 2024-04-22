@@ -8,9 +8,9 @@ const adminRouter = express.Router()
 adminRouter.use(express.json())
 
 
-// adminRouter.get("/",(req,res)=>{
-//     res.send("admin homepage")
-// })
+adminRouter.get("/",(req,res)=>{
+    res.send("admin homepage")
+})
 
 adminRouter.get("/:id", async (req, res) => {
     try {
