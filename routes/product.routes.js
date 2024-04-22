@@ -21,6 +21,17 @@ productRouter.get("/all", async (req, res) => {
     }
 })
 
+//bulk create product
+productRouter.post('jhaua',async(req,res)=>{
+    try {
+        await productModel.bulkCreate(req.body)
+        res.send("new product created")
+    } catch (error) {
+        console.log("error while creating product");
+    }
+})
+
+
 // getting single product
 productRouter.get("/:id", async (req, res) => {
     try {
