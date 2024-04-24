@@ -62,7 +62,7 @@ app.get("/current",currAns,(req,res)=>{
 
 
 
-port=process.eventNames.PORT||9090
+port=process.env.PORT||9090
 
 app.listen(port, async () => {
     console.log(`server is running on 5050`);
