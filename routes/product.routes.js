@@ -22,7 +22,7 @@ productRouter.get("/all", async (req, res) => {
 })
 
 //bulk create product
-productRouter.post('/jhaua/all',async(req,res)=>{
+productRouter.post('/bulk',async(req,res)=>{
     // res.send("lwda")
     try {  
         let ans=await productModel.bulkCreate(req.body)
