@@ -26,17 +26,19 @@ visitorRouter.get("/", async (req, res) => {
 // we need to hit this endpoint to delete all visitors
 visitorRouter.get("/tata/bye", async (req, res) => {
     try {
-        console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        // console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         // Assuming 'sequelize' is your Sequelize instance
         seqlize.query('SET FOREIGN_KEY_CHECKS = 0').then(() => {
             seqlize.query('TRUNCATE TABLE visitors').then(() => {
                 seqlize.query('TRUNCATE TABLE events');
             });
-        });
+        }).then(()=>{
+            seqlize.query('SET FOREIGN_KEY_CHECKS = 1')
+        })
 
-        seqlize.query('SET FOREIGN_KEY_CHECKS = 1')
+ 
         console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-        res.send("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+        res.send("data deleted")
     } catch (error) {
         console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         res.send("nnnnnnnnn")
