@@ -174,11 +174,11 @@ productRouter.get("/category/:id/sort/desc", async (req, res) => {
 
 
 //adding the product
-productRouter.post("/", imgUpload, authentication, rateAd, async (req, res) => {
+productRouter.post("/",  authentication, rateAd, async (req, res) => {
     // console.log(req.body);
     try {
-        const image1 = `https://champion-bu5y.onrender.com/images/${req.file.filename}`
-        req.body.image = image1
+        // const image1 = `https://champion-bu5y.onrender.com/images/${req.file.filename}`
+        // req.body.image = image1
         console.log(req.body);
         await productModel.create(req.body)
         //    res.send(ans);
