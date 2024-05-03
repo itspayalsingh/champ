@@ -371,7 +371,7 @@ document.querySelector("#cat1").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='https://champion-bu5y.onrender.com/product/category/1'
+    let url='https://champion-bu5y.onrender.com/product/category/965539645056974849'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -409,7 +409,7 @@ document.querySelector("#cat2").addEventListener("click",async ()=>{
         visitorId: visitorId
     })
 
-    let url='https://champion-bu5y.onrender.com/product/category/2'
+    let url='https://champion-bu5y.onrender.com/product/category/965539687538950145'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
@@ -448,7 +448,7 @@ document.querySelector("#cat3").addEventListener("click",async ()=>{
     })
 
 
-    let url='https://champion-bu5y.onrender.com/product/category/3'
+    let url='https://champion-bu5y.onrender.com/product/category/965540062779015169'
     let ans= await fetch(url,{
         method:'GET',
         headers:{
