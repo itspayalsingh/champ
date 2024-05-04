@@ -22,16 +22,12 @@ visitorRouter.get("/", async (req, res) => {
 
 })
  
-
-visitorRouter.get("/tata/bye", async (req, res) => {
+ visitorRouter.get("/tata/bye", async (req, res) => {
   try {
     // Assuming 'sequelize' is your Sequelize instance
 
-    // Truncate events first (assuming they reference visitors)
-    await seqlize.query('TRUNCATE TABLE events');
-
-    // Then truncate visitors
-    await seqlize.query('TRUNCATE TABLE visitors');
+    await sequelize.query('TRUNCATE TABLE events CASCADE');
+    await sequelize.query('TRUNCATE TABLE visitors CASCADE');
 
     console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     res.send("data deleted");
@@ -40,6 +36,7 @@ visitorRouter.get("/tata/bye", async (req, res) => {
     res.send("nnnnnnnnn");
   }
 });
+
 
 
 
