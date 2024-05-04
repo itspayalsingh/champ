@@ -28,10 +28,10 @@ visitorRouter.get("/tata/bye", async (req, res) => {
     // Assuming 'sequelize' is your Sequelize instance
 
     // Truncate events first (assuming they reference visitors)
-    await sequelize.query('TRUNCATE TABLE events');
+    await seqlize.query('TRUNCATE TABLE events');
 
     // Then truncate visitors
-    await sequelize.query('TRUNCATE TABLE visitors');
+    await seqlize.query('TRUNCATE TABLE visitors');
 
     console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     res.send("data deleted");
