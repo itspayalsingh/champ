@@ -5,6 +5,7 @@ const eventRouter = express.Router()
 
 eventRouter.post("/", async (req, res) => {
     try {
+        console.log(req.body)
         await eventModel.bulkCreate(req.body)
         res.send("new event created");
     } catch (error) {
