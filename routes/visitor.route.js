@@ -23,35 +23,56 @@ visitorRouter.get("/", async (req, res) => {
 })
  
 
-// we need to hit this endpoint to delete all visitors
 visitorRouter.get("/tata/bye", async (req, res) => {
-    try {
-        // console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        // Assuming 'sequelize' is your Sequelize instance
-     seqlize.query('SET FOREIGN_KEY_CHECKS = 0')
-    .then(() => {
-        return seqlize.query('TRUNCATE TABLE visitors');
-    })
-    .then(() => {
-        return seqlize.query('TRUNCATE TABLE events');
-    })
-    .then(() => {
-        return seqlize.query('SET FOREIGN_KEY_CHECKS = 1');
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+  try {
+    // Assuming 'sequelize' is your Sequelize instance
+
+    // Truncate events first (assuming they reference visitors)
+    await sequelize.query('TRUNCATE TABLE events');
+
+    // Then truncate visitors
+    await sequelize.query('TRUNCATE TABLE visitors');
+
+    console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+    res.send("data deleted");
+  } catch (error) {
+    console.error(error);
+    res.send("nnnnnnnnn");
+  }
+});
+
+
+
+
+// we need to hit this endpoint to delete all visitors
+// visitorRouter.get("/tata/bye", async (req, res) => {
+//     try {
+//         // console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//         // Assuming 'sequelize' is your Sequelize instance
+//      seqlize.query('SET FOREIGN_KEY_CHECKS = 0')
+//     .then(() => {
+//         return seqlize.query('TRUNCATE TABLE visitors');
+//     })
+//     .then(() => {
+//         return seqlize.query('TRUNCATE TABLE events');
+//     })
+//     .then(() => {
+//         return seqlize.query('SET FOREIGN_KEY_CHECKS = 1');
+//     })
+//     .catch((error) => {
+//         console.error(error);
+//     });
 
 
  
-        console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-        res.send("data deleted")
-    } catch (error) {
-        console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-        res.send("nnnnnnnnn")
-    }
+//         console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+//         res.send("data deleted")
+//     } catch (error) {
+//         console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+//         res.send("nnnnnnnnn")
+//     }
 
-})
+// })
 
 
 
