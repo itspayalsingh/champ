@@ -13,30 +13,33 @@ eventRouter.post("/", async (req, res) => {
     }
 })
 
-eventRouter.get("/onlyOne", async (req, res) => {
-    try {
-      if(Object.keys(req.query).length){
-        let eventId=req.query.eventId
-        let visitorId=req.query.visitorId
-        // let handleId = req.params.id;
-        let ans = await eventModel.findAll({
-            where: {
-                visitorId: visitorId,
-                id:eventId
+// eventRouter.get("/onlyOne", async (req, res) => {
+//     try {
+//       if(Object.keys(req.query).length){
+//         console.log(req.query);
+//         let eventId=req.query.eventId
+//         let visitorId=req.query.visitorId
+//         console.log("eventId",eventId)
+//         console.log("visitorid",visitorId);
+//         // let handleId = req.params.id;
+//         let ans = await eventModel.findAll({
+//             where: {
+//                 visitorId: visitorId,
+//                 id:eventId
           
-            },
-        })
-        // console.log("---------------------------------------------------------------------");
-        // console.log("----------------------------------------------------------------------");
-        // console.log(ans);
-        // console.log(ans[0].time);
-        res.send(`${ans[0].time}` )
-      }
+//             },
+//         })
+//         console.log("---------------------------------------------------------------------");
+//         console.log("----------------------------------------------------------------------");
+//         console.log(ans);
+//         // console.log(ans[0].time);
+//         res.send(`${ans[0].time}` )
+//       }
         
-    } catch (error) {
-        console.log("error while fteching visitors data", error);
-    }
-})
+//     } catch (error) {
+//         console.log("error while fteching visitors data", error);
+//     }
+// })
 
 
 eventRouter.get("/limit",async(req,res)=>{
@@ -87,16 +90,21 @@ eventRouter.get("/:id", async (req, res) => {
 eventRouter.get("/count/:id", async (req, res) => {
     try {
         let handleId = req.params.id;
-        let eventsCount=await eventModel.count({
+        let eventsCount=await eventModel.findOne({
+           
+            attributes: [
+                [ seqlize.fn('MAX', seqlize.col('time')), 'max_time'],
+              ],
+             
             where:{
                 visitorId:handleId
             }
         })
         // let first=
         // let data={firstTime:}
+       console.log("evcounttttttttttttttttttt",eventsCount.dataValues.max_time );
 
-
-        res.send(`${eventsCount}`)
+        res.send(`${eventsCount.dataValues.max_time}` )
     } catch (error) {
        res.status(404).send("error while counting events for particular visitorId")
     }

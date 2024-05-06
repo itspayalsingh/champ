@@ -172,22 +172,8 @@
 
             console.log("eventCount", res1);
 
-
-            // finding the lastone id timestamp
-            let lastId = (res1 - 1) + res[0].id
-            console.log("lastid", lastId);
-            let lastIdTimestamp = `https://champion-bu5y.onrender.com/event/onlyOne?eventId=${lastId}&&visitorId=${id}`
-
-            let lastIdAns = await fetch(lastIdTimestamp, {
-                method: 'GET',
-                headers: {
-                    "Content-type": 'Application/json'
-                }
-            })
-            let lastIdres = await lastIdAns.text()
-
-            // pehlApyar = res[0].time
-            durationInSeconds = lastIdres - res[0].time
+               durationInSeconds = res1 - res[0].time
+            // console.log(durationInSeconds);
             newDur = Math.ceil(durationInSeconds / 1000)
             callTime(newDur)
             display(res)
