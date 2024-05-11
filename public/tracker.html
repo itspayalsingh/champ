@@ -170,9 +170,8 @@
             })
             let res1 = await ans1.text()
 
-            console.log("eventCount", res1);
-
-               durationInSeconds = res1 - res[0].time
+            // console.log("eventCount", res1);
+            durationInSeconds = res1 - res[0].time
             // console.log(durationInSeconds);
             newDur = Math.ceil(durationInSeconds / 1000)
             callTime(newDur)
@@ -198,6 +197,7 @@
     let j = 0;
 
     async function callSet(id, length) {
+        console.log("callset get called as its event count is above 2000");
         for (let i = 1; i < 1000; i++) {
             if (length > 2000) {
                 limit = 2000;
@@ -233,7 +233,6 @@
 
             offset = offset + limit;
             length = length - limit;
-            // console.log("lwda labachi");
 
             if (j == 1) {
                 break;
