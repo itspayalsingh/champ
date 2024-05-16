@@ -179,7 +179,7 @@ productRouter.post("/", imgUpload , authentication, rateAd, async (req, res) => 
     try {
         const image1 = `https://champion-bu5y.onrender.com/images/${req.file.filename}`
         req.body.image = image1
-        console.log(req.body);
+        // console.log(req.body);
         await productModel.create(req.body)
         //    res.send(ans);
         res.send("new product added")
@@ -192,14 +192,14 @@ productRouter.post("/", imgUpload , authentication, rateAd, async (req, res) => 
 productRouter.patch("/:id", authentication, async (req, res) => {
     try {
         let payload = req.body
-        console.log("payload", payload);
+        // console.log("payload", payload);
         let ID = req.params.id
         // console.log(ID);
         let reqBody = req.body.adminId
-        console.log("reqBody", reqBody);
+        // console.log("reqBody", reqBody);
         let product = await productModel.findOne({ where: { id: ID } })
         let productAdmin = product.adminId
-        console.log("productAdmin", productAdmin);
+        // console.log("productAdmin", productAdmin);
         if (reqBody == productAdmin) {
             try {
                 await productModel.update(payload, {

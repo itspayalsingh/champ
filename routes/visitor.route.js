@@ -29,7 +29,7 @@ visitorRouter.get("/", async (req, res) => {
     await seqlize.query('TRUNCATE TABLE events CASCADE');
     await seqlize.query('TRUNCATE TABLE visitors CASCADE');
 
-    console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+    // console.log("doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     res.send("data deleted");
   } catch (error) {
     console.error(error);

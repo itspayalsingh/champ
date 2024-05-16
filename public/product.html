@@ -183,7 +183,7 @@
 
     let reqId = new URLSearchParams(window.location.search)
     let id = reqId.get('id')
-    console.log(id);
+    // console.log(id);
     let url = `https://champion-bu5y.onrender.com/product/${id}`
     async function get() {
         let ans = await fetch(url, {
@@ -207,101 +207,111 @@
 
 
 
-    let events = [];
-    let visitorId;
-    let eventy = []
+// ------------------------------TRACKER SYSTEM-------------------------------------
 
-    window.addEventListener("load", async () => {
-        try {
-            let ans = await fetch("https://champion-bu5y.onrender.com/current", {
-                method: 'GET',
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-            let res = await ans.text();
-            visitorId = res;
-        } catch (error) {
-            console.log(error);
-        }
-        // console.log("window loaded of champion")
-        eventy.push({
-            eventType: 'load',
-            url: window.location.href,
-            time: new Date().getTime(),
-            visitorId: visitorId
+let events = [];
+let visitorId;
+let eventy = []
+
+window.addEventListener("load", async () => {
+    try {
+        let ans = await fetch("https://champion-bu5y.onrender.com/current", {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
         });
-        // console.log(eventy)
+        let res = await ans.text();
+        visitorId = res;
+    } catch (error) {
+        console.log(error);
+    }
+    eventy.push({
+        eventType: 'load',
+        url: window.location.href,
+        time: new Date().getTime(),
+        visitorId: visitorId
     });
+});
 
-    document.addEventListener('click', async function (e) {
-        eventy.push({
-            eventType: 'click',
-            x: e.pageX,
-            y: e.pageY,
-            time: new Date().getTime(),
-            visitorId: visitorId
-        });
-        events = eventy
-        eventy = []
-        storePost(events)
-    });
 
-    async function storePost(events) {
+async function storePost(eventpara) {
+    try {
         let eventUrl = "https://champion-bu5y.onrender.com/event"
         await fetch(eventUrl, {
             method: 'POST',
             headers: {
                 'Content-type': 'Application/json'
             },
-            body: JSON.stringify(events)
+            body: JSON.stringify(eventpara)
         })
         events = []
+        // console.log("events before data posted succesfully", events);
+        console.log("data posted succesfully");
+    } catch (error) {
+        alert("not able to post fdata yet")
+        console.log("not able to post fdata yet ", error);
     }
 
-    document.addEventListener('mousemove', async function (e) {
+}
 
-        eventy.push({
-            eventType: 'mousemove',
-            x: e.pageX,
-            y: e.pageY,
-            time: new Date().getTime(),
-            visitorId: visitorId
-        });
 
-        // console.log("first event", eventy)
-        if (eventy.length > 1000) {
+
+
+
+
+
+document.addEventListener('click', async function (e) {
+    eventy.push({
+        eventType: 'click',
+        x: e.pageX,
+        y: e.pageY,
+        time: new Date().getTime(),
+        visitorId: visitorId
+    });
+    events = eventy
+    eventy = []
+    storePost(events)
+});
+
+
+
+document.addEventListener('mousemove', async function (e) {
+
+    eventy.push({
+        eventType: 'mousemove',
+        x: e.pageX,
+        y: e.pageY,
+        time: new Date().getTime(),
+        visitorId: visitorId
+    });
+
+    if (eventy.length > 800) {
+        if (events.length == 0) {
             events = eventy;
             eventy = [];
             storePost(events)
         }
-        // console.log("last events", eventy)
-    });
 
-    window.addEventListener('scroll', (event) => {
-        eventy.push({
-            eventType: 'scroll',
-            scrollPosition: window.scrollY,
-            time: new Date().getTime(),
-            visitorId: visitorId
-        })
-        // console.log(events)
+    }
+    // console.log("last events", eventy)
+});
+
+
+window.addEventListener('scroll', (event) => {
+    eventy.push({
+        eventType: 'scroll',
+        scrollPosition:Math.ceil(window.scrollY),
+        time: new Date().getTime(),
+        visitorId: visitorId
     })
-
-
-
-
-
-
-
-
-
-    window.addEventListener('beforeunload', async (event) => {
-        events = eventy;
-        eventy = [];
-        storePost(events)
-    })
-
+    // console.log(events)
+})
+window.addEventListener('beforeunload', async (event) => {
+    events = eventy;
+    eventy = [];
+    storePost(events)
+})
 
     // ---------------------------till here was the tracker-------------------------------
 

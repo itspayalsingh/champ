@@ -8,7 +8,7 @@ const authentication=(req,res,next)=>{
           let set=decoded.userId
           req.body.adminId= set
         }else{
-            console.log("pleaseeeeeeeeeee login first");
+            console.log("please login first");
         }
         next()
     } catch (error) {

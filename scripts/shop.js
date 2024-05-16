@@ -21,7 +21,7 @@ let gt= async()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -72,15 +72,40 @@ window.addEventListener("load", async () => {
     } catch (error) {
         console.log(error);
     }
-    console.log("window loaded of champion")
     eventy.push({
         eventType: 'load',
         url: window.location.href,
         time: new Date().getTime(),
         visitorId: visitorId
     });
-    console.log(eventy)
 });
+
+
+async function storePost(eventpara) {
+    try {
+        let eventUrl = "https://champion-bu5y.onrender.com/event"
+        await fetch(eventUrl, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'Application/json'
+            },
+            body: JSON.stringify(eventpara)
+        })
+        events = []
+        // console.log("events before data posted succesfully", events);
+        console.log("data posted succesfully");
+    } catch (error) {
+        alert("not able to post fdata yet")
+        console.log("not able to post fdata yet ", error);
+    }
+
+}
+
+
+
+
+
+
 
 document.addEventListener('click', async function (e) {
     eventy.push({
@@ -95,17 +120,7 @@ document.addEventListener('click', async function (e) {
     storePost(events)
 });
 
-async function storePost(events) {
-    let eventUrl = "https://champion-bu5y.onrender.com/event"
-    await fetch(eventUrl, {
-        method: 'POST',
-        headers: {
-            'Content-type': 'Application/json'
-        },
-        body: JSON.stringify(events)
-    })
-    events = []
-}
+
 
 document.addEventListener('mousemove', async function (e) {
 
@@ -117,25 +132,27 @@ document.addEventListener('mousemove', async function (e) {
         visitorId: visitorId
     });
 
-    console.log("first event", eventy)
-    if (eventy.length > 1000) {
-        events = eventy;
-        eventy = [];
-        storePost(events)
+    if (eventy.length > 800) {
+        if (events.length == 0) {
+            events = eventy;
+            eventy = [];
+            storePost(events)
+        }
+
     }
-    console.log("last events", eventy)
+    // console.log("last events", eventy)
 });
+
 
 window.addEventListener('scroll', (event) => {
     eventy.push({
         eventType: 'scroll',
-        scrollPosition: window.scrollY,
+        scrollPosition:Math.ceil(window.scrollY),
         time: new Date().getTime(),
         visitorId: visitorId
     })
     // console.log(events)
 })
-
 window.addEventListener('beforeunload', async (event) => {
     events = eventy;
     eventy = [];
@@ -214,7 +231,7 @@ document.querySelector("#price1").addEventListener("click",async()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -254,7 +271,7 @@ document.querySelector("#price2").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -299,7 +316,7 @@ document.querySelector("#rate1").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -340,7 +357,7 @@ document.querySelector("#rate2").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -379,7 +396,7 @@ document.querySelector("#cat1").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -417,7 +434,7 @@ document.querySelector("#cat2").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -456,7 +473,7 @@ document.querySelector("#cat3").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -495,7 +512,7 @@ document.querySelector("#sort1").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       
@@ -534,7 +551,7 @@ document.querySelector("#sort2").addEventListener("click",async ()=>{
         }
     })
     let res= await ans.json()
-    console.log(res);
+    // console.log(res);
     document.querySelector("#right").innerHTML=''
     res.forEach(el => {
       

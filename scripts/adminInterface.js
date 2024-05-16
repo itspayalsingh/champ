@@ -47,7 +47,7 @@ document.querySelector("#submitCat").addEventListener("click", async () => {
         },
         body: JSON.stringify(obj)
     })
-    console.log(ans);
+    // console.log(ans);
     document.querySelector("#notify").innerText = 'New Category Added'
     document.querySelector("#notify").style.display = 'inline-block'
     document.querySelector("#category").value = '';
@@ -79,7 +79,7 @@ document.querySelector("#addProduct form").addEventListener("submit", async func
         },
         body: formData
     })
-    console.log(req);
+    // console.log(req);
     document.querySelector("#notify").innerText = 'New Product Add'
     document.querySelector("#notify").style.display = 'inline-block'
     // document.querySelector("#addProduct input").value=''

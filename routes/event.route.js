@@ -5,11 +5,14 @@ const eventRouter = express.Router()
 
 eventRouter.post("/", async (req, res) => {
     try {
-        console.log(req.body)
+        // console.log(req.body)
         await eventModel.bulkCreate(req.body)
         res.send("new event created");
     } catch (error) {
-        console.log("error while creating event", error);
+        console.log("error while creating all events :---", error);
+        res.status(400).send(`not able to create bulk events data ::--- ${error}`);
+
+        // res.status(400).send("not able to create bulk events data ::---",error)
     }
 })
 
@@ -45,10 +48,10 @@ eventRouter.post("/", async (req, res) => {
 eventRouter.get("/limit",async(req,res)=>{
     // console.log(req.query)
     try {
-        let vis=  +req.query.id
+        let vis= req.query.id
         let offy= +req.query.offset;
         let limit= +req.query.limit;
-        // console.log(vis,offy,limit);
+        console.log(vis,offy,limit);
         if(Object.keys(req.query).length){
             let ans= await eventModel.findAll({
                 where:{
@@ -58,10 +61,10 @@ eventRouter.get("/limit",async(req,res)=>{
                 limit:limit
             })
             res.send(ans)
-            console.log("--------------------------------------------------------------------")
-            console.log("--------------------------------------------------------------------")
-            console.log("--------------------------------------------------------------------")
-            console.log("--------------------------------------------------------------------")
+            // console.log("--------------------------------------------------------------------")
+            // console.log("--------------------------------------------------------------------")
+            // console.log("--------------------------------------------------------------------")
+            // console.log("--------------------------------------------------------------------")
         }
     } catch (error) {
         console.log("lwde ka error",error);
@@ -79,6 +82,7 @@ eventRouter.get("/:id", async (req, res) => {
             },
             limit:2000
         })
+        // console.log("ans for limit below 2000",ans);
         res.send(ans)
     } catch (error) {
         console.log("error while fteching visitors data", error);
@@ -90,21 +94,20 @@ eventRouter.get("/:id", async (req, res) => {
 eventRouter.get("/count/:id", async (req, res) => {
     try {
         let handleId = req.params.id;
-        let eventsCount=await eventModel.findOne({
+        let eventsCount=await eventModel.findAll({
            
             attributes: [
+                [seqlize.fn('COUNT', '*'), 'count'],
                 [ seqlize.fn('MAX', seqlize.col('time')), 'max_time'],
+
               ],
              
             where:{
                 visitorId:handleId
             }
         })
-        // let first=
-        // let data={firstTime:}
-       console.log("evcounttttttttttttttttttt",eventsCount.dataValues.max_time );
-
-        res.send(`${eventsCount.dataValues.max_time}` )
+    
+        res.send(eventsCount[0].dataValues)
     } catch (error) {
        res.status(404).send("error while counting events for particular visitorId")
     }

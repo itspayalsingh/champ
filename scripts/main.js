@@ -15,15 +15,40 @@ window.addEventListener("load", async () => {
     } catch (error) {
         console.log(error);
     }
-    // console.log("window loaded of champion")
     eventy.push({
         eventType: 'load',
         url: window.location.href,
         time: new Date().getTime(),
         visitorId: visitorId
     });
-    // console.log(eventy)
 });
+
+
+async function storePost(eventpara) {
+    try {
+        let eventUrl = "https://champion-bu5y.onrender.com/event"
+        await fetch(eventUrl, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'Application/json'
+            },
+            body: JSON.stringify(eventpara)
+        })
+        events = []
+        // console.log("events before data posted succesfully", events);
+        console.log("data posted succesfully");
+    } catch (error) {
+        alert("not able to post fdata yet")
+        console.log("not able to post fdata yet ", error);
+    }
+
+}
+
+
+
+
+
+
 
 document.addEventListener('click', async function (e) {
     eventy.push({
@@ -38,17 +63,7 @@ document.addEventListener('click', async function (e) {
     storePost(events)
 });
 
-async function storePost(events) {
-    let eventUrl = "https://champion-bu5y.onrender.com/event"
-    await fetch(eventUrl, {
-        method: 'POST',
-        headers: {
-            'Content-type': 'Application/json'
-        },
-        body: JSON.stringify(events)
-    })
-    events = []
-}
+
 
 document.addEventListener('mousemove', async function (e) {
 
@@ -60,89 +75,27 @@ document.addEventListener('mousemove', async function (e) {
         visitorId: visitorId
     });
 
-    // console.log("first event", eventy)
-    if (eventy.length > 1000) {
-        events = eventy;
-        eventy = [];
-        storePost(events)
+    if (eventy.length > 800) {
+        if (events.length == 0) {
+            events = eventy;
+            eventy = [];
+            storePost(events)
+        }
+
     }
     // console.log("last events", eventy)
 });
 
+
 window.addEventListener('scroll', (event) => {
     eventy.push({
         eventType: 'scroll',
-        scrollPosition: window.scrollY,
+        scrollPosition:Math.ceil(window.scrollY),
         time: new Date().getTime(),
         visitorId: visitorId
     })
     // console.log(events)
 })
-
-
-
-// this is for hover effect for tracker.html
-document.querySelector("#userHover").addEventListener("mouseenter",()=>{
-    eventy.push({
-        eventType: 'userHover',
-        time: new Date().getTime(),
-        visitorId: visitorId
-    })
-})
-
-// let allCard= document.querySelectorAll(".card")
-// allCard.forEach(el => {
-//     el.addEventListener("mouseenter")
-//     el.addEventListener("mouseleave")
-// });
-document.querySelector("#firstBook").addEventListener("mouseenter",()=>{
-    eventy.push({
-        eventType:'firstBookMouseEnter',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-})
-document.querySelector("#secondBook").addEventListener("mouseenter",()=>{
-    eventy.push({
-        eventType:'secondBookMouseEnter',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-})
-document.querySelector("#thirdBook").addEventListener("mouseenter",()=>{
-    eventy.push({
-        eventType:'thirdBookMouseEnter',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-})
-document.querySelector("#firstBook").addEventListener("mouseleave",()=>{
-    eventy.push({
-        eventType:'firstBookMouseOut',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-})
-document.querySelector("#secondBook").addEventListener("mouseleave",()=>{
-    eventy.push({
-        eventType:'secondBookMouseOut',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-})
-document.querySelector("#thirdBook").addEventListener("mouseleave",()=>{
-    eventy.push({
-        eventType:'thirdBookMouseOut',
-        time:new Date().getTime(),
-        visitorId:visitorId
-    })
-}) 
-
-
-
-
-
-
 window.addEventListener('beforeunload', async (event) => {
     events = eventy;
     eventy = [];
@@ -150,8 +103,68 @@ window.addEventListener('beforeunload', async (event) => {
 })
 
 
+// this is for hover effect for tracker.html
+document.querySelector("#userHover").addEventListener("mouseenter", () => {
+    eventy.push({
+        eventType: 'userHover',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
  
+document.querySelector("#firstBook").addEventListener("mouseenter", () => {
+    eventy.push({
+        eventType: 'firstBookMouseEnter',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+document.querySelector("#secondBook").addEventListener("mouseenter", () => {
+    eventy.push({
+        eventType: 'secondBookMouseEnter',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+document.querySelector("#thirdBook").addEventListener("mouseenter", () => {
+    eventy.push({
+        eventType: 'thirdBookMouseEnter',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+document.querySelector("#firstBook").addEventListener("mouseleave", () => {
+    eventy.push({
+        eventType: 'firstBookMouseOut',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+document.querySelector("#secondBook").addEventListener("mouseleave", () => {
+    eventy.push({
+        eventType: 'secondBookMouseOut',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+document.querySelector("#thirdBook").addEventListener("mouseleave", () => {
+    eventy.push({
+        eventType: 'thirdBookMouseOut',
+        time: new Date().getTime(),
+        visitorId: visitorId
+    })
+})
+
+
+
+
+
+
  
+
+
+
+
 
 
 
@@ -207,7 +220,7 @@ document.querySelector("#customerLogin").addEventListener("click", () => {
 
 // SEARCH FUNCTIONALITY
 document.querySelector("#mgn").addEventListener("click", () => {
-    console.log("me a");
+    // console.log("me a");
     document.querySelector("#search").style.display = 'block'
 })
 
@@ -230,7 +243,7 @@ allP()
 
 function search() {
     let l = document.querySelector("#search input").value;
-    console.log(l);
+    // console.log(l);
 
     // let imag=allP()
     // console.log(imag);
