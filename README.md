@@ -8,3 +8,18 @@ These are all the products
 
 We can sort the products by price, either from low to high or high to low. Additionally, we can sort them by rating, from low to high or high to low. Furthermore, product categorization and alphabetical sorting are also available
 
+ 
+ 
+
+## Session Recording Tool
+
+   This session recording feature records all the mouse movement activities of any visitor who comes to your website. It records where the customer clicked, which pages they visited, and displays it all like a video.
+
+ 
+
+<p align="center">
+  <img src="https://github.com/itspayalsingh/champ/assets/112754449/1827d953-26a0-4f6d-abad-148b2b1bf792" />
+</p>
+
+#### Note :- 
+“This is not a video; it’s simply a replay of customer interactions.” 🌟
