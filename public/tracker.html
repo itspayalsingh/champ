@@ -313,6 +313,13 @@
             setTimeout(() => {
                 cally()
             }, (events[events.length - 1].time - events[1].time) + 15);
+        }else {
+            setTimeout(() => {
+                // Get the iframe and set its content
+                let iframe = document.getElementById("ifra");
+                iframe.contentDocument.body.innerHTML = ""; // Clear existing content (optional)
+                iframe.contentWindow.document.body.style.backgroundColor = 'rgb(47, 46, 46)';
+            }, (events[events.length - 1].time - events[1].time) + 2000);
         }
  
         for (let i = 0; i < events.length; i++) {
@@ -449,7 +456,7 @@
         iframe.contentDocument.querySelector("#userHoverOption").style.display = 'block'
         setTimeout(() => {
             iframe.contentDocument.querySelector("#userHoverOption").style.display = 'none'
-        }, 5000);
+        }, 2000);
     }
 
 
