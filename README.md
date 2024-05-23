@@ -1,4 +1,4 @@
-![Untitled-2024-05-21-0947](https://github.com/itspayalsingh/champ/assets/112754449/d2a6edad-2704-471a-92ec-b99bad0c92b3)
+
 On Opening of this website You will land to the homepage
 
 ![Screenshot 2024-05-16 160048](https://github.com/itspayalsingh/champ/assets/112754449/e04e57c6-07b6-4f96-aa9b-7e3fa84c7d89)
@@ -16,6 +16,8 @@ We can sort the products by price, either from low to high or high to low. Addit
 
    This session recording feature records all the mouse movement activities of any visitor who comes to your website. It records where the customer clicked, which pages they visited, and displays it all like a video.
 
+Sequelize Association
+![Untitled-2024-05-21-0947](https://github.com/itspayalsingh/champ/assets/112754449/d2a6edad-2704-471a-92ec-b99bad0c92b3) 
  
 
 <p align="center">
