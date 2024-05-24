@@ -22,12 +22,13 @@ We can sort the products by price, either from low to high or high to low. Addit
 - Sorting by price , rating , alphabatically
 - Searching functionality
 - customer can add to cart and buy now
+- admin functionality
 
  
  
 
 ## Session Recording Tool
-
+homepage >> admin login >> visitors
 <p align="center">
   <img src="https://github.com/itspayalsingh/champ/assets/112754449/1827d953-26a0-4f6d-abad-148b2b1bf792" />
 </p>
@@ -104,6 +105,20 @@ We can sort the products by price, either from low to high or high to low. Addit
 **Server:** Node, Express
 
 **Database:** Mysql, to store on cloud used cockrochDB
+
+## Admin login
+**email:** payal@gmail.com
+
+**password:** payal@21
+
+## Dificult
+Vistors part is my favorite and most chalenging part of this project because other things like creating sequelize association authorization were not that dificult for me since i have done many miniprojects in which i have used sequelize association and authorization with JSON web token and bcrypt in visitors part i have put a lot of effort to create a session recording tool so please give me feedback about it  
+homepage >> admin login >> visitors
+
+## Demo
+
+https://champion-bu5y.onrender.com/
+
 
 
 ## Author
