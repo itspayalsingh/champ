@@ -41,8 +41,61 @@ We can sort the products by price, either from low to high or high to low. Addit
  
 
 ## API endpoints
-**Admin Routes**
-admin signup POST /admin
+#### Admin Routes
+- Register a new admin   ```  POST /admin ```  
+- Log in as a admin  ```  POST /admin/login ```
+- Get a admin by id ```  GET /admin/:id ```
+- Update a admin by id ```  PATCH /admin/:id ```
+
+#### Category Routes
+- Create a new category: `POST /category`
+- Get all categories: `GET /category`
+- Update a category by ID: `PATCH /category/:id`
+- Delete a category by ID: `DELETE /category/:id`
+
+#### Product Routes  
+- Get the products by admin username ```  GET /product?admin=${userName} ```
+- Create a New product   ```  POST /product ```
+- Update a product by id ```  PATCH /product/:id ```
+- Delete a product by id ```  DELETE /product/:id ```
+- Get all products ```  GET /product/all ```
+- Sort all products price from low to high `GET  product/sort/lowToHighPrice `
+- Sort all products price from high to low `GET  product/sort/highToLowPrice `
+- Sort all products rating from low to high `GET  product/sort/lowToHighRating `
+- Sort all products rating from high to low `GET  product/sort/highToLowRating `
+- Sort all products alphabatically from AtoZ `GET  product/sort/AtoZ`
+- Sort all products alphabatically from ZtoA `GET  product/sort/ZtoA`
+- Get the all products by category id `GET  /product/category/:id`
+- Sort category products by ascending order of price `GET /product/category/:id/price/asc `
+- Sort category products by descending order of price `GET /product/category/:id/price/desc `
+- Sort category products by ascending order of Rating `GET /product/category/:id/rste/asc `
+- Sort category products by descending order of Rating `GET /product/category/:id/rste/desc `
+- Sort category products alphabatically from AtoZ `GET /product/category/:id/sort/asc`
+- Sort category products alphabatically from ZtoA `GET /product/category/:id/sort/desc`
+
+#### Customer Routes
+- Create a new customer `POST  /customer`
+- login as a customer  `POST  /customer/login`
+
+#### Add To Cart Routes
+- Create a new add to cart `POST  /addToCart`
+- Delete add to cart by id  `DELETE  /addToCart/:id`
+- get add to cart by customer id `GET  /addToCart/just`
+
+#### Order Routes
+- Create a new order `POST  /order`
+
+#### Visitor Routes
+- Get all visitors `GET  /visitor`
+- Delete all the visitors `DELETE  /visitor/tata/bye`
+
+#### Event Routes
+- Create a new event `POST /event`
+- Get events by visitor id limit 2000 `GET /event/:id `
+- To get latest timestamp and events length by particular visitor id `GET  event/count/:id`
+- Get events `GET /event/limit?id=${visitorId}&&limit=${limit}&&offset=${offset}`
+
+
 
 ## Tech Stack
 
