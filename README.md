@@ -106,3 +106,8 @@ We can sort the products by price, either from low to high or high to low. Addit
 **Database:** Mysql, to store on cloud used cockrochDB
 
 
+## Author
+
+- [@itspayalsingh](https://github.com/itspayalsingh/)
+
+
