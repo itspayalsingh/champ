@@ -28,15 +28,28 @@ We can sort the products by price, either from low to high or high to low. Addit
 
 ## Session Recording Tool
 
-   This session recording feature records all the mouse movement activities of any visitor who comes to your website. It records where the customer clicked, which pages they visited, and displays it all like a video.
-
-Sequelize Association
-![Untitled-2024-05-21-0947](https://github.com/itspayalsingh/champ/assets/112754449/d2a6edad-2704-471a-92ec-b99bad0c92b3) 
- 
-
 <p align="center">
   <img src="https://github.com/itspayalsingh/champ/assets/112754449/1827d953-26a0-4f6d-abad-148b2b1bf792" />
 </p>
+   This session recording feature records all the mouse movement activities of any visitor who comes to your website. It records where the customer clicked, which pages they visited, and displays it all like a video.
 
 #### Note :- 
 “This is not a video; it’s simply a replay of customer interactions.” 🌟
+
+## Sequelize Association
+![Untitled-2024-05-21-0947](https://github.com/itspayalsingh/champ/assets/112754449/d2a6edad-2704-471a-92ec-b99bad0c92b3) 
+ 
+
+## API endpoints
+**Admin Routes**
+admin signup POST /admin
+
+## Tech Stack
+
+**Client:** HTML , CSS , Javascript 
+
+**Server:** Node, Express
+
+**Database:** Mysql, to store on cloud used cockrochDB
+
+
