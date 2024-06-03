@@ -10,9 +10,9 @@ let addVisitor = async (req, res, next) => {
     try {
         const rName = uniqueNamesGenerator({ dictionaries: [colors, animals] });
         vistorName = rName.split("_").join(" ");
-        // let ip=req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        let ans = geoIp.lookup("203.187.228.57")
-        // console.log(ans);
+        let ip=req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        let ans = geoIp.lookup(ip)
+        console.log(ans);
         let { city } = ans
         let state1 = State.getStateByCodeAndCountry(ans.region, ans.country);
         let state = state1.name
