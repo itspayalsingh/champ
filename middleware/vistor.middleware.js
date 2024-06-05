@@ -11,7 +11,9 @@ let addVisitor = async (req, res, next) => {
         const rName = uniqueNamesGenerator({ dictionaries: [colors, animals] });
         vistorName = rName.split("_").join(" ");
         let ipk=req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        console.log(ipk)
         let ip=ipk.split(",")
+        console.log(ip)
         let ans = geoIp.lookup(ip[0])
         console.log(ans);
         let { city } = ans
