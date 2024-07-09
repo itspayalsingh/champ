@@ -18,7 +18,11 @@ const { eventRouter } = require("./routes/event.route");
 
 // const { urlTrack } = require("./middleware/track.middleware");
 const app = express();
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: '*',
+}));
+
 require("dotenv").config()
 app.use(express.json())
 // app.use(express.static('styles'))
